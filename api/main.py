@@ -1,5 +1,6 @@
 # save this as app.py
-from flask import Flask
+from flask import Flask, request
+
 
 
 print(__name__)
@@ -7,9 +8,10 @@ print(__name__)
 
 app= Flask(__name__)
 
-@app.route("/")
-def hello():
-    return "Hello, Flask!"
+@app.route("/new-image")
+def new_image():
+    word = request.args.get("query")
+    return {"word": word}
 
 
 if __name__ == '__main__':
